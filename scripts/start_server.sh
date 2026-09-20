@@ -1,3 +1,6 @@
 #!/bin/bash
+set -e
+
 cd /var/www/flaskapp
-nohup ./venv/bin/gunicorn --bind 0.0.0.0:8000 app:app > /dev/null 2>&1 &
+
+./venv/bin/gunicorn --bind 0.0.0.0:8000 --daemon app:app
